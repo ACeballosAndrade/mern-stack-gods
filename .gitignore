@@ -1,0 +1,6 @@
+#node
+node_modules
+client
+
+#Variables de entorno
+.env
