@@ -52,7 +52,7 @@ export const updateGod = async (req, res) => {
           public_id: resultado.public_id
       }
     }
-    const diosUpdated = await Dios.findByIdAndUpdate(req.params.id, body, {new: true}); //Literalmente busca un ID de tu DB y lo actualiza. El {}new: true me devuelve el nuevo objeto ya modificado
+    const diosUpdated = await Dios.findByIdAndUpdate(req.params.id, body, {new: true}); //Literalmente busca un ID de tu DB y lo actualiza. El {}new: true me devuelve el nuevo objeto actualizado, sino devolvería el viejo
     return res.send(diosUpdated);
   } catch (error) {
     console.log(error);
