@@ -21,12 +21,11 @@ export const signup = async (req, res) => {
     }
 
     const savedUser = await nuevoUser.save()
-    console.log(savedUser)
 
     const token = jwt.sign({id: savedUser._id}, SECRET, {
         expiresIn: 86400 //24 Horas
     })
-    res.status(200).json({token})
+    res.status(200).json({name: savedUser.username, token})
 }
 
 
@@ -45,7 +44,7 @@ export const signin = async (req, res) => {
         const token = jwt.sign({id: userFound._id}, SECRET, {
             expiresIn: 86400
         }) 
-        res.json({token})
+        res.json({name: userFound.username, token})
     }
 
     

@@ -7,7 +7,7 @@ const router = Router()
 
 router.get('/dioses', getGods)
 router.post('/dioses', createGod)
-router.put('/dioses/:id', [authJwt.verifyToken, authJwt.isModerator, authJwt.isAdmin], updateGod)
+router.put('/dioses/:id', [authJwt.verifyToken, authJwt.isAdmin], updateGod)
 router.delete('/dioses/:id', [authJwt.verifyToken, authJwt.isAdmin], deleteGod)
 router.get('/dioses/:id', getGod)
 

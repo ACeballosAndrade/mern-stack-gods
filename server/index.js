@@ -5,4 +5,4 @@ import {PORT} from './config.js'
 connectDB()
 
 app.listen(PORT)
-console.log('Server in runing port', PORT)
+//console.log('Server in runing port', PORT)

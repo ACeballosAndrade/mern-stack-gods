@@ -7,7 +7,6 @@ export const getGods = async (req, res) => {
     const dioses = await Dios.find();
     res.send(dioses);
   } catch (error) {
-    console.log(error);
     return res.status(500).json({ message: error.message });
   }
 };
@@ -31,10 +30,9 @@ export const createGod = async (req, res) => {
     });
 
     await dios.save();
-    return res.json(dios);
+    return res.status(200).json(dios);
 
   } catch (error) {
-    console.log(error);
     return res.status(500).json({ message: error.message });
   }
 };
@@ -43,7 +41,6 @@ export const updateGod = async (req, res) => {
   try {
     const body = req.body
     if(req.files?.image){ //Con ese signo evitamos el error de cuando image es null.
-      console.log("vino un File")
       const resultado = await uploadImage(req.files.image.tempFilePath) //Como la función devuelve una promesa usamos await
       await fs.remove(req.files.image.tempFilePath) //Eliminará la imagen de nuestro server ya que la estaremos guardando en cloudinary
      
@@ -53,9 +50,8 @@ export const updateGod = async (req, res) => {
       }
     }
     const diosUpdated = await Dios.findByIdAndUpdate(req.params.id, body, {new: true}); //Literalmente busca un ID de tu DB y lo actualiza. El {}new: true me devuelve el nuevo objeto actualizado, sino devolvería el viejo
-    return res.send(diosUpdated);
+    return res.status(200).send(diosUpdated);
   } catch (error) {
-    console.log(error);
     return res.status(500).json({ message: error.message });
   }
 };
@@ -70,16 +66,14 @@ export const deleteGod = async (req, res) => {
     if(diosToRemove.image.public_id){ //Si el objeto tiene imagen -> Bórrala mediante su id en Cloudinary
         await deleteImage(diosToRemove.image.public_id)
     }
-    return res.sendStatus(204);
+    return res.sendStatus(200)
 
   } catch (error) {
-    console.log(error);
     return res.status(500).json({ message: error.message });
   }
 };
 
 export const getGod = async (req, res) => {
-  console.log(req.params)
   try {
     const dios = await Dios.findById(req.params.id);
     if (!dios) return res.sendStatus(404);

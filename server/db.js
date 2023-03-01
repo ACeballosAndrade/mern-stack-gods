@@ -7,7 +7,7 @@ export async function connectDB(){
         mongoose.set("strictQuery", false);
 
         const db = await mongoose.connect(MONGODB_URI) 
-        console.log("Connectado a ", db.connection.name)
+        //console.log("Connectado a ", db.connection.name)
     } catch (error) {
         console.log(error)
     }

@@ -31,7 +31,6 @@ export const isModerator = async (req, res, next) => {
             return
         }
      }
-     console.log(roles)
      return res.status(403).json({message: "Requieres rol de moderador"})
 }
 
@@ -45,6 +44,5 @@ export const isAdmin = async (req, res, next) => {
             return
         }
      }
-     console.log(roles)
      return res.status(403).json({message: "Requieres rol de Administrador"})
 }
