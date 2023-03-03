@@ -28,7 +28,8 @@ export function Login() {
                 password: Yup.string().required("La contraseña es requerida")
             })}
             onSubmit={async (values, actions) => {
-                await login(values);
+                const res = await login(values);
+                console.log(res)
                 navigate("/")
             }}
         >
