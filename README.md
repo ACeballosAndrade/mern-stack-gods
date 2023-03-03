@@ -15,6 +15,6 @@ Puedes agregar cuantos dioses quieras. Sin embargo, es necesario loguearse para 
 ## Accede a los datos de la API 🍃
 * [mern-stack-gods.herokuapp.com/api/dioses](https://mern-stack-gods.herokuapp.com/api/dioses)
 
-## Vista previa
+## Vista previa 🔍
 [![Captura.jpg](https://i.postimg.cc/SRN914R0/Captura.jpg)](https://postimg.cc/BLkttd2N)
 
